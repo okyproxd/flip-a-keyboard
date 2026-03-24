@@ -1,25 +1,10 @@
 #include <furi.h>
-#include <furi_hal.h>
-#include "keycode_mapper.h"
+#include <furi_hal_bt.h>
+#include "bluetooth_monitor.h"
 #include "storage.h"
 
-void start_usb_monitoring() {
-    furi_log("Starting USB monitoring...");
-    FuriHalUsb.init();
-
-    while (!furi_hal_usb_device_ready()) {
-        furi_delay_ms(100);
-    }
-
-    while (furi_hal_usb_device_ready()) {
-        uint8_t keycode[8];
-        if (furi_hal_usb_hid_receive(keycode, sizeof(keycode))) {
-            char character = map_keycode_to_char(keycode);
-            furi_log("Keystroke: %c", character);
-            save_keystroke_to_storage(character);
-        }
-    }
-
-    FuriHalUsb.deinit();
-    furi_log("USB monitoring stopped.");
+void start_bluetooth_monitoring() {
+    FURI_LOG_I("BT_MON", "Bluetooth Monitor Mode Active");
+    // Placeholder for actual BLE logic
+    furi_delay_ms(2000);
 }
