@@ -1,6 +1,3 @@
-#ifndef BLUETOOTH_MONITOR_H
-#define BLUETOOTH_MONITOR_H
+#pragma once
 
 void start_bluetooth_monitoring();
-
-#endif
