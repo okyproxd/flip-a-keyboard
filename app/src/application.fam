@@ -2,14 +2,8 @@ App(
     appid="keystroke_monitor",
     name="Keystroke Monitor",
     apptype=FlipperAppType.EXTERNAL,
-    entry_point="main",
+    entry_point="keystroke_monitor_main",
     stack_size=2 * 1024,
     fap_category="Tools",
-    fap_version=(1, 0),
-    requires=[
-        "gui",
-        "storage",
-        "bt",
-    ],
-    fap_description="Monitor and log keystrokes from Bluetooth and USB HID devices.",
+    requires=["gui", "storage", "usb", "bt"],
 )
